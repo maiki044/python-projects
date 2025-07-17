@@ -20,8 +20,10 @@ while True:
     if texto == "fim":
         break
 
-    #adicionando mensagem na lista 
+    #adicionando mensagem na lista guarda o que voce escrever na "caixa"
     mensagens.append({
         "nome":nome,
         "texto":texto
     })
+
+    
