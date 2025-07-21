@@ -21,6 +21,12 @@ elif operacao == 'divisao' :
 else :
     print("Operacao invalida, Tente novamente")
 
+
+
+
+
+
+
 def caucular (numero1, numero2, operacao):
     if operacao == 'soma' :
         soma = numero1 + numero2
