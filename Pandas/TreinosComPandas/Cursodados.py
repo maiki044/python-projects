@@ -22,3 +22,4 @@ renomear_colunas = {
 }
 df.rename(columns=renomear_colunas, inplace=True)
 print(df.columns)
+print(df["nivel_experiencia"].value_counts())
