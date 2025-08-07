@@ -30,4 +30,8 @@ substituir_senioridade = {
     'SE': 'Júnior',
     'EX': 'Estágio'
 }
+print(df.head())
+print(df.isnull().sum())
+print(df['ano'].unique())
+print(df[df.isnull().any(axis=1)])
 
