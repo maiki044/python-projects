@@ -23,3 +23,11 @@ renomear_colunas = {
 df.rename(columns=renomear_colunas, inplace=True)
 print(df.columns)
 print(df["nivel_experiencia"].value_counts())
+print(df["porte_empresa"].value_counts())
+substituir_senioridade = {
+    'EN': 'Sênior',
+    'MI': 'Médio',
+    'SE': 'Júnior',
+    'EX': 'Estágio'
+}
+
