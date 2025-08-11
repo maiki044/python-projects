@@ -34,4 +34,42 @@ print(df.head())
 print(df.isnull().sum())
 print(df['ano'].unique())
 print(df[df.isnull().any(axis=1)])
+df_limpo = df.dropna()
+print(df_limpo.head())
+print(df_limpo['nivel_experiencia'].value_counts().plot(kind='bar', title="Distribuição de nível de experiência"))
+import seaborn as sns
+sns.barplot(data=df_limpo, x='nivel_experiencia', y='salario_em_usd')
+import matplotlib.pyplot as plt
 
+plt.figure(figsize=(8,5))
+sns.barplot(data=df_limpo, x='senioridade', y='usd')
+plt.title("Salário médio por senioridade")
+plt.xlabel("Senioridade")
+plt.ylabel("Salário médio anual (USD)")
+plt.show()
+
+df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=False)
+ordem = df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=True).index
+
+plt.figure(figsize=(8,5))
+sns.barplot(data=df_limpo, x='senioridade', y='usd', order=ordem)
+plt.title("Salário médio por senioridade")
+plt.xlabel("Senioridade")
+plt.ylabel("Salário médio anual (USD)")
+plt.show()
+
+plt.figure(figsize=(10,5))
+sns.histplot(df_limpo['usd'], bins = 50, kde=True)
+plt.title("Distribuição dos salários anuais")
+plt.xlabel("Salário em USD")
+plt.ylabel("Frequência")
+plt.show()
+
+plt.figure(figsize=(8,5))
+sns.boxplot(x=df_limpo['usd'])
+plt.title("Boxplot Salário")
+plt.xlabel("Salário em USD")
+plt.show()
+
+df_limpo.to_csv('dados-imersao-final.csv', index=False)
+print(df_limpo.head())
